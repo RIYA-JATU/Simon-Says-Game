@@ -1,0 +1,53 @@
+body {
+    text-align: center;
+}
+
+.mainHeading {
+    color: rgb(83, 74, 25);
+}
+
+.btn {
+    height: 180px;
+    width: 180px;
+    border: thick solid black;
+    border-radius: 50px;
+    margin: 20px;
+}
+
+.btn:hover {
+    box-shadow: 5px 5px 10px rgb(107, 102, 102);
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
+
+.red {
+    background-color: rgb(239, 134, 134);
+}
+
+.green {
+    background-color: rgb(96, 242, 96);
+}
+
+.yellow {
+    background-color: rgb(253, 253, 93);
+}
+
+.blue {
+    background-color: rgb(130, 130, 244);
+}
+
+.gameFlash {
+    background-color: white;
+}
+
+.userFlash {
+    background-color: rgb(48, 45, 45);
+}
+
+.danger {
+    background-color: red;
+}
