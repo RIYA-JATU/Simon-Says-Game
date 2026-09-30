@@ -7,9 +7,16 @@ let btns = ["green", "red", "yellow", "blue"];
 
 let h3 = document.querySelector("h3");
 
+let highScore = 0;
+function updateHighScore(score) {
+    let highScore = document.querySelector(".highScore");
+    highScore.innerHTML = `Today's highest score => ${score}`;
+}
+
+
 document.addEventListener("keypress", function () {
     if (started == false) {
-        console.log("game started");
+        // console.log("game started");
         started = true;
     }
 
@@ -30,7 +37,7 @@ function levelUP() {
     gameFlash(randBtn);
     // sath k sath flash hone vale color ko gameeq mai bhi add kar denge..
     gameSeq.push(randColor);
-    console.log("game seq = ", gameSeq);
+    // console.log("game seq = ", gameSeq);
 }
 
 function gameFlash(btn) {
@@ -68,15 +75,15 @@ function userFlash(btn) {
 
 
 function checkAnswer(lastIdx) {
-    console.log("user seq =", userSeq);
+    // console.log("user seq =", userSeq);
     if (userSeq[lastIdx] != gameSeq[lastIdx]) {
-        console.log(`${lastIdx} isn't match.`);
+        // console.log(`${lastIdx} isn't match.`);
         wrongInput();
         return;
     }
 
     if (userSeq.length === gameSeq.length) {
-        console.log("Full sequence matched!");
+        // console.log("Full sequence matched!");
         userSeq = [];
         setTimeout(levelUP, 1000); // move to next level after short delay
     }
@@ -84,6 +91,10 @@ function checkAnswer(lastIdx) {
 
 function wrongInput() {
     h3.innerHTML = `Game Over! your <b>score</b> was ${level - 1} <br> Press any key to restart :)`;
+    if (level - 1 > highScore) {
+        highScore = level - 1;
+        updateHighScore(highScore);
+    }
     let body = document.querySelector("body");
     body.classList.add("danger");
     setTimeout(function () {
